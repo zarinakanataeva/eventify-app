@@ -23,7 +23,7 @@ class ApiService {
 
   constructor() {
     this.baseURL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
-    this.useMocks = process.env.REACT_APP_USE_MOCKS === 'true' || !process.env.REACT_APP_API_URL;
+    this.useMocks = false;
     
     if (this.useMocks) {
       console.log('🔧 Using mock API service for demonstration');

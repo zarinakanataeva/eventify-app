@@ -1,0 +1,51 @@
+spring:
+  application:
+    name: eventify
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:postgresql://localhost:5439/eventify_db
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+security:
+  jwt:
+    secret: change_this_secret_change_in_prod
+    expiration-ms: 3600000
+
+logging:
+  level:
+    root: INFO
+    org.springframework: INFO
+    com.eventify: DEBUG
+
+app:
+  frontend:
+    url: http://localhost:3000
+
+
